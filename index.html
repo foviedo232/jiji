@@ -1,91 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Edición de Tabla</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-
-        .excel-table {
-            border-collapse: collapse;
-            width: 60%;
-            margin: 50px auto;
-            border: 1px solid #ccc;
-        }
-
-        .excel-table th,
-        .excel-table td {
-            border: 1px solid #ccc;
-            padding: 8px;
-        }
-
-        .excel-table th {
-            background-color: #f2f2f2;
-            font-weight: bold;
-        }
-
-        .excel-table tbody tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        .excel-table tbody tr:hover {
-            background-color: #ddd;
-        }
-
-        .editable-cell {
-            cursor: pointer;
-        }
-
-        .editable-cell input {
-            width: 100%;
-            box-sizing: border-box;
-            border: none;
-            background-color: transparent;
-            outline: none;
-        }
-    </style>
+    <title>Suma de 2 + 2</title>
 </head>
 <body>
-    <table class="excel-table">
-        <thead>
-            <tr>
-                <th>A</th>
-                <th>B</th>
-                <th>C</th>
-                <th>D</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="editable-cell" onclick="makeCellEditable(this)">Value A1</td>
-                <td class="editable-cell" onclick="makeCellEditable(this)">Value B1</td>
-                <td class="editable-cell" onclick="makeCellEditable(this)">Value C1</td>
-                <td class="editable-cell" onclick="makeCellEditable(this)">Value D1</td>
-            </tr>
-            <tr>
-                <td class="editable-cell" onclick="makeCellEditable(this)">Value A2</td>
-                <td class="editable-cell" onclick="makeCellEditable(this)">Value B2</td>
-                <td class="editable-cell" onclick="makeCellEditable(this)">Value C2</td>
-                <td class="editable-cell" onclick="makeCellEditable(this)">Value D2</td>
-            </tr>
-            <!-- Agrega más filas según sea necesario -->
-        </tbody>
-    </table>
+    <p>El resultado de 2 + 2 es: <span id="resultado">...</span></p>
 
     <script>
-        function makeCellEditable(cell) {
-            const cellValue = cell.innerText;
-            cell.innerHTML = `<input type="text" value="${cellValue}" onblur="updateCellValue(this)">`;
-            cell.querySelector('input').focus();
-        }
+        // Calcula la suma
+        var suma = 2 + 2;
 
-        function updateCellValue(input) {
-            const newValue = input.value;
-            const cell = input.parentElement;
-            cell.innerHTML = newValue;
-        }
+        // Actualiza el contenido del elemento span con el resultado
+        document.getElementById("resultado").textContent = suma;
     </script>
 </body>
 </html>
