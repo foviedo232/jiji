@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Suma de 2 + 2</title>
+    <title>Calculadora Simple</title>
 </head>
 <body>
-    <p>El resultado de 2 + 2 es: <span id="resultado">...</span></p>
+    <label for="numero">Ingresa un número:</label>
+    <input type="number" id="numero" onchange="calcularResultado()">
+    <p>El resultado es: <span id="resultado">...</span></p>
 
     <script>
-        // Calcula la suma
-        var suma = 2 + 2;
+        function calcularResultado() {
+            var inputNumero = document.getElementById("numero");
+            var resultadoSpan = document.getElementById("resultado");
 
-        // Actualiza el contenido del elemento span con el resultado
-        document.getElementById("resultado").textContent = suma;
+            var numero = parseFloat(inputNumero.value);
+            var resultado = numero === 2 ? 9 : "No es 2";
+
+            resultadoSpan.textContent = resultado;
+        }
     </script>
 </body>
 </html>
