@@ -35,7 +35,7 @@ input[type="number"] {
 /* Estilos para el resultado */
 .resultado {
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 36px;
 }
 
 /* Estilos para el resultado cuando es "No es 2" */
