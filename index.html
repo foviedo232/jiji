@@ -60,21 +60,32 @@
         <p class="resultado">El resultado es: <span id="resultado">...</span></p>
     </div>
 
-    <script>
-        function calcularResultado() {
-            var entrada = document.getElementById("entrada");
-            var resultadoSpan = document.getElementById("resultado");
 
-            var valor = entrada.value.toLowerCase(); // Convertir a minúsculas
-            var resultado = valor === "22st" ? "Nueve" : "No es44 dos";
-            var resultado = valor === "33st" ? "Night" : "algo 33 dos";
-
-
-        document.getElementById("entrada").addEventListener("keyup", function(event) {
+       <script>
+    document.getElementById("entrada").addEventListener("keyup", function(event) {
         if (event.key === "Enter") {
             calcularResultado();
+        }
+    });
 
-            resultadoSpan.textContent = resultado;
+    function calcularResultado() {
+        var entrada = document.getElementById("entrada");
+        var resultadoSpan = document.getElementById("resultado");
+
+        var valor = entrada.value.toLowerCase();
+        var resultado = "";
+
+        if (valor === "22st") {
+            resultado = "Nueve";
+        } else if (valor === "33st") {
+            resultado = "Night";
+        } else {
+            resultado = "Algo diferente";
+        }
+
+        resultadoSpan.textContent = resultado;
+    }
+</script>
 
         }
     });
