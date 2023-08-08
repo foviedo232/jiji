@@ -27,11 +27,11 @@
             display: block;
             margin-bottom: 10px;
             font-weight: bold;
-            font-size: 18px; /* Cambia el tamaño de la fuente */
-            color: #333; /* Cambia el color del texto */
+            font-size: 18px;
+            color: #333;
         }
 
-        input[type="number"] {
+        input[type="text"] {
             width: 100%;
             padding: 8px;
             border: 1px solid #ccc;
@@ -43,30 +43,30 @@
         .resultado {
             margin-top: 20px;
             font-size: 18px;
-            color: #ff00f7; /* Cambia el color del texto del resultado */
+            color: #007BFF;
         }
 
         /* Estilos para el resultado cuando es "No es 2" */
         .resultado span {
-            color: green;
+            color: red;
             font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <label for="numero">Ingresa un número:</label>
-        <input type="number" id="numero" onchange="calcularResultado()">
+        <label for="entrada">Ingresa un número o letra:</label>
+        <input type="text" id="entrada" oninput="calcularResultado()">
         <p class="resultado">El resultado es: <span id="resultado">...</span></p>
     </div>
 
     <script>
         function calcularResultado() {
-            var inputNumero = document.getElementById("numero");
+            var entrada = document.getElementById("entrada");
             var resultadoSpan = document.getElementById("resultado");
 
-            var numero = parseFloat(inputNumero.value);
-            var resultado = numero === 2 ? 9 : "No es 2";
+            var valor = entrada.value;
+            var resultado = valor === "2" ? "Nueve" : "No es dos";
 
             resultadoSpan.textContent = resultado;
         }
