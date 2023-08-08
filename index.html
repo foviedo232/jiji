@@ -61,13 +61,8 @@
     </div>
 
 
-       <script>
-             document.getElementById("entrada").addEventListener("keyup", function(event) {
-        if (event.key === "Enter") {
-            calcularResultado();
-        }
-    });
-
+<script>
+    // Definir la función calcularResultado
     function calcularResultado() {
         var entrada = document.getElementById("entrada");
         var resultadoSpan = document.getElementById("resultado");
@@ -85,6 +80,13 @@
 
         resultadoSpan.textContent = resultado;
     }
-    </script>
+
+    // Añadir el evento keyup después de definir la función calcularResultado
+    document.getElementById("entrada").addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+            calcularResultado();
+        }
+    });
+</script>
 </body>
 </html>
