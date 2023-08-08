@@ -68,11 +68,12 @@
             var valor = entrada.value.toLowerCase(); // Convertir a minúsculas
             var resultado = valor === "22st" ? "Nueve" : "No es44 dos";
 
-            resultadoSpan.textContent = resultado;
-
-    document.getElementById("entrada").addEventListener("keyup", function(event) {
+        document.getElementById("entrada").addEventListener("keyup", function(event) {
         if (event.key === "Enter") {
             calcularResultado();
+
+            resultadoSpan.textContent = resultado;
+
         }
     });
     }
