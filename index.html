@@ -69,7 +69,23 @@
             var resultado = valor === "22st" ? "Nueve" : "No es44 dos";
 
             resultadoSpan.textContent = resultado;
+
+    document.getElementById("entrada").addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+            calcularResultado();
         }
+    });
+
+    function calcularResultado() {
+        var entrada = document.getElementById("entrada");
+        var resultadoSpan = document.getElementById("resultado");
+
+        var valor = entrada.value.toLowerCase();
+        var resultado = valor === "2" ? "Nueve" : "No es dos";
+
+        resultadoSpan.textContent = resultado;
+    }
+
     </script>
 </body>
 </html>
