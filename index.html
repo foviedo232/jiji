@@ -56,37 +56,34 @@
 <body>
     <div class="container">
         <label for="entrada">Ingresa un número o letra:</label>
-        <input type="text" id="entrada" oninput="calcularResultado()">
-        <p class="resultado">El resultado es: <span id="resultado">...</span></p>
+        <input type="text" id="entrada">
+        <p class="resultado">Presiona Enter para mostrar el resultado: <span id="resultado">...</span></p>
     </div>
 
+    <script>
+        // Función para calcular el resultado
+        function calcularResultado() {
+            var entrada = document.getElementById("entrada").value.toLowerCase();
+            var resultadoSpan = document.getElementById("resultado");
+            var resultado = "";
 
-<script>
-    // Definir la función calcularResultado
-    function calcularResultado() {
-        var entrada = document.getElementById("entrada");
-        var resultadoSpan = document.getElementById("resultado");
+            if (entrada === "22st") {
+                resultado = "Nueve";
+            } else if (entrada === "33st") {
+                resultado = "Night";
+            } else {
+                resultado = "Algo diferente";
+            }
 
-        var valor = entrada.value.toLowerCase();
-        var resultado = "";
-
-        if (valor === "22st") {
-            resultado = "Nueve";
-        } else if (valor === "33st") {
-            resultado = "Night";
-        } else {
-            resultado = "Algo diferente";
+            resultadoSpan.textContent = resultado;
         }
 
-        resultadoSpan.textContent = resultado;
-    }
-
-    // Añadir el evento keyup después de definir la función calcularResultado
-    document.getElementById("entrada").addEventListener("keyup", function(event) {
-        if (event.key === "Enter") {
-            calcularResultado();
-        }
-    });
-</script>
+        // Evento keyup para detectar presión de Enter
+        document.getElementById("entrada").addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                calcularResultado();
+            }
+        });
+    </script>
 </body>
 </html>
