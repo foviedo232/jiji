@@ -1,91 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Calculadora Simple</title>
-    <style>
-        /* Estilos generales para el cuerpo de la página */
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
+    <title>Determinar el Signo de un Número</title>
+    <script>
+        function determinarSigno() {
+            var numero = parseFloat(document.getElementById("numero").value);
+            var resultado = document.getElementById("resultado");
 
-        /* Estilos para el contenedor principal */
-        .container {
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 5px;
-            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            if (numero > 0) {
+                resultado.innerHTML = "El número es positivo.";
+            } else if (numero < 0) {
+                resultado.innerHTML = "El número es negativo.";
+            } else {
+                resultado.innerHTML = "El número es cero.";
+            }
         }
-
-        /* Estilos para etiquetas y campos de entrada */
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-            font-size: 18px;
-            color: #333;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            font-size: 16px;
-        }
-
-        /* Estilos para el resultado */
-        .resultado {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #007BFF;
-        }
-
-        /* Estilos para el resultado cuando es "No es 2" */
-        .resultado span {
-            color: red;
-            font-weight: bold;
-        }
-    </style>
+    </script>
 </head>
 <body>
-    <div class="container">
-        <label for="entrada">Ingresa un número o letra:</label>
-        <input type="text" id="entrada">
-        <p class="resultado">Presiona Enter para mostrar el resultado: <span id="resultado">...</span></p>
-    </div>
-
-    <script>
-        // Función para calcular el resultado
-        function calcularResultado() {
-            var entrada = document.getElementById("entrada").value.toLowerCase();
-            var resultadoSpan = document.getElementById("resultado");
-            var resultado = "";
-
-            if (entrada === "22st") {
-                resultado = 
-"Nueve"
-"Diez";
-            } else if (entrada === "33st") {
-                resultado = "Night";
-            } else {
-                resultado = "nadaaaa";
-            }
-
-            resultadoSpan.textContent = resultado;
-        }
-
-        // Evento keyup para detectar presión de Enter
-        document.getElementById("entrada").addEventListener("keyup", function(event) {
-            if (event.key === "Enter") {
-                calcularResultado();
-            }
-        });
-    </script>
+    <h1>Determinar el Signo de un Número</h1>
+    <form>
+        <label for="numero">Ingrese un número:</label>
+        <input type="number" id="numero" step="any">
+        <button type="button" onclick="determinarSigno()">Determinar Signo</button>
+    </form>
+    <p id="resultado"></p>
 </body>
 </html>
