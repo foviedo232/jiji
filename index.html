@@ -1,29 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Determinar el Signo de un Número</title>
-    <script>
-        function determinarSigno() {
-            var numero = parseFloat(document.getElementById("numero").value);
-            var resultado = document.getElementById("resultado");
-
-            if (numero > 0) {
-                resultado.innerHTML = "El número es positivo.";
-            } else if (numero < 0) {
-                resultado.innerHTML = "El número es negativo.";
-            } else {
-                resultado.innerHTML = "El número es cero.";
-            }
-        }
-    </script>
+    <title>Abrir archivo PDF</title>
 </head>
 <body>
-    <h1>Determinar el Signo de un Número</h1>
-    <form>
-        <label for="numero">Ingrese un número:</label>
-        <input type="number" id="numero" step="any">
-        <button type="button" onclick="determinarSigno()">Determinar Signo</button>
-    </form>
-    <p id="resultado"></p>
+    <a href="hubspot%20clave.pdf" target="_blank">Abrir archivo PDF</a>
 </body>
 </html>
