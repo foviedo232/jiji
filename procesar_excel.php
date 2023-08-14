@@ -1,16 +1,29 @@
 <?php
+require 'vendor/autoload.php'; // Asegúrate de tener la ruta correcta
+
+use PhpOffice\PhpSpreadsheet\IOFactory;
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_FILES["archivo_excel"]["error"] == UPLOAD_ERR_OK) {
         $nombre_temporal = $_FILES["archivo_excel"]["tmp_name"];
-        $nombre_archivo = $_FILES["archivo_excel"]["name"];
 
-        // Aquí puedes usar una biblioteca como PHPExcel o PhpSpreadsheet para procesar el archivo Excel
-        // Por ejemplo:
-        // require 'PHPExcel.php';
-        // $excel = PHPExcel_IOFactory::load($nombre_temporal);
-        
-        // Procesar y mostrar los datos del archivo Excel
-        echo "Archivo subido con éxito: $nombre_archivo";
+        try {
+            $spreadsheet = IOFactory::load($nombre_temporal);
+            $sheet = $spreadsheet->getActiveSheet();
+            
+            echo "<h1>Datos del archivo Excel</h1>";
+            echo "<table border='1'>";
+            foreach ($sheet->getRowIterator() as $row) {
+                echo "<tr>";
+                foreach ($row->getCellIterator() as $cell) {
+                    echo "<td>" . $cell->getValue() . "</td>";
+                }
+                echo "</tr>";
+            }
+            echo "</table>";
+        } catch (Exception $e) {
+            echo "Error al procesar el archivo: " . $e->getMessage();
+        }
     } else {
         echo "Error al subir el archivo.";
     }
