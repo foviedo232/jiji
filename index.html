@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Abrir archivo PDF</title>
+    <title>Importar Excel</title>
 </head>
 <body>
-    <a href="hubspot%20clave.pdf" target="_blank" download>Abrir archivo PDF</a>
+    <form action="procesar_excel.php" method="post" enctype="multipart/form-data">
+        <label for="archivo_excel">Selecciona un archivo Excel:</label>
+        <input type="file" name="archivo_excel" id="archivo_excel">
+        <input type="submit" value="Subir y procesar">
+    </form>
 </body>
 </html>
