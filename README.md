@@ -1,3 +1,0 @@
-# jiji
-koko
-sss
