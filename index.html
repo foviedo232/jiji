@@ -1,13 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Importar Excel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valor en base a otro</title>
 </head>
 <body>
-    <form action="procesar_excel.php" method="post" enctype="multipart/form-data">
-        <label for="archivo_excel">Selecciona un archivo Excel:</label>
-        <input type="file" name="archivo_excel" id="archivo_excel">
-        <input type="submit" value="Subir y procesar">
-    </form>
+
+<select id="articuloSelect" onchange="mostrarDescripcion()">
+    <option value="099882">099882</option>
+    <option value="099982">099982</option>
+    <!-- Agrega más opciones según tu base de datos -->
+</select>
+
+<p>Descripción: <span id="descripcion"></span></p>
+
+<script>
+    function mostrarDescripcion() {
+        // Obtén el valor seleccionado del artículo
+        var articuloSeleccionado = document.getElementById("articuloSelect").value;
+
+        // Aquí deberías tener tu base de datos en JavaScript o hacer una llamada a un servidor para obtener los datos.
+        // Supongamos que tienes un objeto con los datos.
+        var baseDeDatos = {
+            "099882": "Contrafrente Abisagrado Ciego p/S9000 - 300x300",
+            "099982": "Contrafrente Abulonado Ciego p/S9000 - 300x300",
+            // Agrega más datos según tu base de datos
+        };
+
+        // Obtén la descripción del objeto basándote en el artículo seleccionado
+        var descripcion = baseDeDatos[articuloSeleccionado];
+
+        // Muestra la descripción en el HTML
+        document.getElementById("descripcion").textContent = descripcion;
+    }
+</script>
+
 </body>
 </html>
