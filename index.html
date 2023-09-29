@@ -4,32 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar en Base de Datos</title>
-    <script>
-        function buscar() {
-            // Obtener el valor de la medida ingresada por el usuario
-            var medidaBuscada = document.getElementById('inputMedida').value;
-
-            // Buscar en la base de datos
-            for (var i = 0; i < baseDatos.length; i++) {
-                if (baseDatos[i].Medida === medidaBuscada) {
-                    // Mostrar los resultados
-                    document.getElementById('resultadoDescripcion').innerText = baseDatos[i].Descripcion;
-                    document.getElementById('resultadoArticulo').innerText = baseDatos[i].Articulo;
-                    return; // Salir del bucle una vez que se encuentre la coincidencia
-                }
-            }
-
-            // Manejar el caso en que no se encuentre ninguna coincidencia
-            document.getElementById('resultadoDescripcion').innerText = 'No se encontraron resultados';
-            document.getElementById('resultadoArticulo').innerText = '';
-        }
-        
-        // Base de datos simulada
-        var baseDatos = [
-            { Articulo: '099882', Descripcion: 'Contrafrente Abisagrado Ciego p/S9000 - 300x300', Medida: '300x300' },
-            // ... (resto de tus datos)
-        ];
-    </script>
+    <script src="buscar.js" defer></script>
 </head>
 <body>
     <h1>Buscar en Base de Datos</h1>
