@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valor en base a otro</title>
+    <title>Valor en base a otro con medida</title>
 </head>
 <body>
 
@@ -14,6 +14,7 @@
 </select>
 
 <p>Descripción: <span id="descripcion"></span></p>
+<p>Medida: <span id="medida"></span></p>
 
 <script>
     function mostrarDescripcion() {
@@ -23,16 +24,18 @@
         // Aquí deberías tener tu base de datos en JavaScript o hacer una llamada a un servidor para obtener los datos.
         // Supongamos que tienes un objeto con los datos.
         var baseDeDatos = {
-            "099882": "Contrafrente Abisagrado Ciego p/S9000 - 300x300",
-            "099982": "Contrafrente Abulonado Ciego p/S9000 - 300x300",
+            "099882": { descripcion: "Contrafrente Abisagrado Ciego p/S9000 - 300x300", medida: "300x300" },
+            "099982": { descripcion: "Contrafrente Abulonado Ciego p/S9000 - 300x300", medida: "300x300" },
             // Agrega más datos según tu base de datos
         };
 
-        // Obtén la descripción del objeto basándote en el artículo seleccionado
-        var descripcion = baseDeDatos[articuloSeleccionado];
+        // Obtén la descripción y medida del objeto basándote en el artículo seleccionado
+        var descripcion = baseDeDatos[articuloSeleccionado].descripcion;
+        var medida = baseDeDatos[articuloSeleccionado].medida;
 
-        // Muestra la descripción en el HTML
+        // Muestra la descripción y medida en el HTML
         document.getElementById("descripcion").textContent = descripcion;
+        document.getElementById("medida").textContent = medida;
     }
 </script>
 
