@@ -3,19 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscar en Base de Datos</title>
-    <script src="buscar.js" defer></script>
+    <title>Buscar Artículo y Descripción</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
-    <h1>Buscar en Base de Datos</h1>
-    
-    <label for="inputMedida">Ingrese la medida:</label>
-    <input type="text" id="inputMedida">
-    
-    <button onclick="buscar()">Buscar</button>
-    
-    <h2>Resultados:</h2>
-    <p><strong>Descripción:</strong> <span id="resultadoDescripcion"></span></p>
-    <p><strong>Artículo:</strong> <span id="resultadoArticulo"></span></p>
+
+<h2>Buscar Artículo y Descripción por Medida</h2>
+
+<p>Ingrese la medida: <input type="text" id="inputMedida"></p>
+<button onclick="buscar()">Buscar</button>
+
+<table id="tablaDatos">
+  <tr>
+    <th>Artículo</th>
+    <th>Descripción</th>
+    <th>Medida</th>
+  </tr>
+  <tr>
+    <td>099882</td>
+    <td>Contrafrente Abisagrado Ciego p/S9000 - 300x300</td>
+    <td>300x300</td>
+  </tr>
+  <tr>
+    <td>099982</td>
+    <td>Contrafrente Abulonado Ciego p/S9000 - 300x300</td>
+    <td>300x300</td>
+  </tr>
+  <tr>
+    <td>099882C</td>
+    <td>Contraf. Abisagrado Calado 10 Bip. p/S9000-300x300</td>
+    <td>300x300</td>
+  </tr>
+  <!-- Inserta el resto de tus datos aquí -->
+</table>
+
+<script>
+    function buscar() {
+        var inputMedida = document.getElementById('inputMedida').value.toUpperCase();
+        var table = document.getElementById('tablaDatos');
+        var rows = table.getElementsByTagName('tr');
+
+        for (var i = 1; i < rows.length; i++) {
+            var cells = rows[i].getElementsByTagName('td');
+            var medida = cells[2].innerText || cells[2].textContent;
+
+            if (medida.toUpperCase() === inputMedida) {
+                // Mostrar artículo y descripción
+                var articulo = cells[0].innerText || cells[0].textContent;
+                var descripcion = cells[1].innerText || cells[1].textContent;
+
+                alert('Artículo: ' + articulo + '\nDescripción: ' + descripcion);
+                return;
+            }
+        }
+
+        // Medida no encontrada
+        alert('Medida no encontrada.');
+    }
+</script>
+
 </body>
 </html>
