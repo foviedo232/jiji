@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Excel</title>
+    <title>Mini Excel con Fórmulas</title>
     <style>
         table {
             border-collapse: collapse;
-            width: 400px;
+            width: 500px;
             margin-top: 20px;
         }
 
@@ -20,11 +20,15 @@
         th {
             background-color: #f2f2f2;
         }
+
+        .result-cell {
+            background-color: #e6f7ff;
+        }
     </style>
 </head>
 <body>
 
-    <h2>Mini Excel</h2>
+    <h2>Mini Excel con Fórmulas</h2>
 
     <table id="miniExcel">
         <thead>
@@ -32,6 +36,8 @@
                 <th>A</th>
                 <th>B</th>
                 <th>C</th>
+                <th>D (Fórmulas)</th>
+                <th class="result-cell">Resultados</th>
             </tr>
         </thead>
         <tbody>
@@ -39,11 +45,15 @@
                 <td contenteditable="true"></td>
                 <td contenteditable="true"></td>
                 <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="result-cell"></td>
             </tr>
             <tr>
                 <td contenteditable="true"></td>
                 <td contenteditable="true"></td>
                 <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td class="result-cell"></td>
             </tr>
             <!-- Puedes agregar más filas según sea necesario -->
         </tbody>
@@ -55,10 +65,28 @@
         table.addEventListener('input', function(e) {
             const target = e.target;
             if (target.tagName.toLowerCase() === 'td') {
-                // Puedes realizar operaciones o almacenar datos según sea necesario
-                console.log(`Valor ingresado: ${target.innerText}`);
+                updateResults();
             }
         });
+
+        function updateResults() {
+            const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+            for (let i = 0; i < rows.length; i++) {
+                const formulaCell = rows[i].getElementsByTagName('td')[3];
+                const resultCell = rows[i].getElementsByClassName('result-cell')[0];
+
+                if (formulaCell && resultCell) {
+                    const formula = formulaCell.innerText;
+                    try {
+                        const result = eval(formula);
+                        resultCell.innerText = isNaN(result) ? 'Error' : result;
+                    } catch (error) {
+                        resultCell.innerText = 'Error';
+                    }
+                }
+            }
+        }
     </script>
 
 </body>
