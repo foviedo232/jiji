@@ -3,44 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscar Artículo y Descripción</title>
+    <title>Mini Excel</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 400px;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
 
-<h2>Buscar Artículo y Descripción por Medida</h2>
+    <h2>Mini Excel</h2>
 
-<p>Ingrese la medida: <input type="text" id="inputMedida"></p>
-<button onclick="buscar()">Buscar</button>
+    <table id="miniExcel">
+        <thead>
+            <tr>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+            <tr>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+            <!-- Puedes agregar más filas según sea necesario -->
+        </tbody>
+    </table>
 
-<div id="resultado"></div>
+    <script>
+        const table = document.getElementById('miniExcel');
 
-<script>
-    function buscar() {
-        var inputMedida = document.getElementById('inputMedida').value.toUpperCase();
-        var datos = [
-            ['099882', 'Contrafrente Abisagrado Ciego p/S9000 - 300x300', '300x300'],
-            ['099982', 'Contrafrente Abulonado Ciego p/S9000 - 300x300', '300x300'],
-            // ... Agrega el resto de tus datos aquí
-        ];
-
-        for (var i = 0; i < datos.length; i++) {
-            var medida = datos[i][2];
-
-            if (medida.toUpperCase() === inputMedida) {
-                // Mostrar resultado en el cuerpo de la página
-                var articulo = datos[i][0];
-                var descripcion = datos[i][1];
-
-                var resultadoDiv = document.getElementById('resultado');
-                resultadoDiv.innerHTML = '<p>Artículo: ' + articulo + '</p><p>Descripción: ' + descripcion + '</p>';
-                return;
+        table.addEventListener('input', function(e) {
+            const target = e.target;
+            if (target.tagName.toLowerCase() === 'td') {
+                // Puedes realizar operaciones o almacenar datos según sea necesario
+                console.log(`Valor ingresado: ${target.innerText}`);
             }
-        }
-
-        // Medida no encontrada
-        alert('Medida no encontrada.');
-    }
-</script>
+        });
+    </script>
 
 </body>
 </html>
